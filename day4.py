@@ -6,11 +6,13 @@ Created on Wed Jan  3 22:52:27 2024
 @author: Kristen
 """
 
-f = open('inputday4.txt','r')
-input = f.readlines()
-sum = 0
+f = open('inputday4.txt','r')  # when you open like this you should close. https://realpython.com/python-with-statement/
+input = f.readlines()  # input is a builtin function so you shouldn't use it as a var name
+sum = 0  # same with sum
 
 def clean(input,i):
+    # you don't have to but it can be more readable to have longer var names
+    # i dont always follow that but its still a good thing a lot of the time
     k = input[i].split(':')
     l = k[1].split('\n')
     j = l[0].split('|')
@@ -19,7 +21,8 @@ def clean(input,i):
 ''' Part 1
 for i in range(len(input)):
     nums = clean(input,i)
-    
+
+    # you can also .replace("  ", " ") and maybe .strip() before you split then you don't have to do this isnumeric stuff
     g = nums[0].split(' ')
     guess = []
     for j in range(len(g)):
@@ -33,6 +36,7 @@ for i in range(len(input)):
             win.append(int(w[j]))
     
     cnt = 0
+    # checking for value in a list is O(n) vs in a set is O(1)
     for element in guess:
         if win.count(element)!= 0:
             cnt += 1
@@ -76,7 +80,7 @@ for i in range(len(input)):
             arr[i,j+i]=1
     else:
         arr[i,i]=1
-
+# nerd
 for j in range(len(input)):
     l=0
     while l < j:
