@@ -87,6 +87,4 @@ for j in range(len(input)):
 print(np.trace(arr))
 
 
-
-#973 too low
     
